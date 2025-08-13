@@ -1,5 +1,5 @@
 import { createOrUpdateUser } from "@/lib/actions/user";
-import { clerkClient } from "@clerk/nextjs/server";
+import { clerkClient } from "@clerk/backend";
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 import { NextRequest } from "next/server";
 
@@ -35,7 +35,9 @@ export async function POST(req) {
       );
       if (user || evt.type === "user.created") {
         try {
-          await clerkClient.users.updateUserMetadata(id, {
+          await (
+            await clerkClient()
+          ).users.updateUserMetadata(id, {
             publicMetadata: { userMongoId: user._id },
           });
         } catch (error) {
