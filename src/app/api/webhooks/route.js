@@ -33,8 +33,9 @@ export async function POST(req) {
         email_addresses,
         username
       );
-      if (user || evt.type === "user.created") {
+      if (user && evt.type === "user.created") {
         try {
+          console.log("Updating user :", user);
           await (
             await clerkClient()
           ).users.updateUserMetadata(id, {
