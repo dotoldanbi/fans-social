@@ -1,4 +1,4 @@
-import { createOrUpdateUser } from "@/lib/actions/user";
+import { createOrUpdateUser, deleteUser } from "@/lib/actions/user";
 import { clerkClient } from "@clerk/nextjs/server";
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 import { NextRequest } from "next/server";
@@ -33,9 +33,9 @@ export async function POST(req) {
         email_addresses,
         username
       );
-      if (user && evt.type === "user.created") {
+      console.log("USER :", user);
+      if (user || evt.type === "user.created") {
         try {
-          console.log("Updating user :", user);
           await (
             await clerkClient()
           ).users.updateUserMetadata(id, {
