@@ -1,5 +1,5 @@
 import { createOrUpdateUser } from "@/lib/actions/user";
-import { clerkClient } from "@clerk/backend";
+import { clerkClient } from "@clerk/nextjs/server";
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 import { NextRequest } from "next/server";
 
