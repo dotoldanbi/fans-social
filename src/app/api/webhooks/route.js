@@ -34,7 +34,7 @@ export async function POST(req) {
         username
       );
       console.log("USER :", user);
-      if (user || evt.type === "user.created") {
+      if (user && evt.type === "user.created") {
         try {
           await (
             await clerkClient()
