@@ -4,7 +4,7 @@ import Feed from "@/components/Feed";
 export default async function Home() {
   let data = null;
   try {
-    const result = await fetch(process.env.URL + "/api/post/all", {
+    const result = await fetch(process.env.NEXT_PUBLIC_URL + "/api/post/all", {
       method: "POST",
       cache: "no-store",
     });

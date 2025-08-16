@@ -5,11 +5,14 @@ import { HiArrowLeft } from "react-icons/hi";
 export default async function SearchPage({ params }) {
   let data = null;
   try {
-    const result = await fetch(process.env.URL + `/api/post/search`, {
-      method: "POST",
-      body: JSON.stringify({ searchTerm: params.searchTerm }),
-      cache: "no-store",
-    });
+    const result = await fetch(
+      process.env.NEXT_PUBLIC_URL + `/api/post/search`,
+      {
+        method: "POST",
+        body: JSON.stringify({ searchTerm: params.searchTerm }),
+        cache: "no-store",
+      }
+    );
 
     data = await result.json();
     console.log(data);

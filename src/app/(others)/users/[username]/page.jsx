@@ -7,7 +7,7 @@ export default async function UserPage({ params }) {
   let data = null;
   try {
     console.log("Fetching user data for:", params.username);
-    const result = await fetch(process.env.URL + "/api/user/get", {
+    const result = await fetch(process.env.NEXT_PUBLIC_URL + "/api/user/get", {
       method: "POST",
       body: JSON.stringify({ userName: params.username }),
       cache: "no-store",
@@ -15,11 +15,14 @@ export default async function UserPage({ params }) {
     data = await result.json();
     console.log("Fetched user data:", data);
 
-    const userPosts = await fetch(process.env.URL + "/api/post/user/get", {
-      method: "POST",
-      body: JSON.stringify({ userId: data._id }),
-      cache: "no-store",
-    });
+    const userPosts = await fetch(
+      process.env.NEXT_PUBLIC_URL + "/api/post/user/get",
+      {
+        method: "POST",
+        body: JSON.stringify({ userId: data._id }),
+        cache: "no-store",
+      }
+    );
     data.posts = await userPosts.json();
     console.log("Fetched user posts:", data.posts);
   } catch (error) {
