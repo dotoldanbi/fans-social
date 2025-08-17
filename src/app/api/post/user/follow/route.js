@@ -49,6 +49,10 @@ export const POST = async (req) => {
       (item) => item.toString() === userProfileIdFromMongoDB._id.toString()
     );
 
+    // const isFollowing = userWhoFollowsFromMongoDB.following
+    //   .map((id) => id.toString())
+    //   .includes(userProfileIdFromMongoDB._id.toString());
+
     if (isFollowing) {
       // 이미 팔로우 중이라면 언팔로우 처리
       userWhoFollowsFromMongoDB.following =

@@ -58,13 +58,17 @@ export default async function UserPage({ params }) {
             <div className="mt-4 flex space-x-4">
               <div>
                 <span className="font-bold">
-                  {data.followings ? data.followings.length : "0"}
+                  {String(
+                    data.followings ? data.followings.length : "0"
+                  ).concat("\u00A0")}
                 </span>
                 Following
               </div>
               <div>
                 <span className="font-bold">
-                  {data.followers ? data.followers.length : ""}
+                  {String(data.followers ? data.followers.length : "0").concat(
+                    "\u00A0"
+                  )}
                 </span>
                 Followers
               </div>

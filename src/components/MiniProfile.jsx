@@ -1,6 +1,7 @@
 "use client";
 
 import { UserButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
 import { HiDotsHorizontal } from "react-icons/hi";
 
 export default function MiniProfile() {
@@ -20,7 +21,9 @@ export default function MiniProfile() {
           @{user && user.username}
         </p>
       </div>
-      <HiDotsHorizontal className="h-3 w-3 hidden xl:inline" />
+      <Link href={`/users/${user.username}`}>
+        <HiDotsHorizontal className="h-3 w-3 hidden xl:inline" />
+      </Link>
     </div>
   );
 }

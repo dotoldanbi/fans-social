@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaXTwitter } from "react-icons/fa6";
 import { HiHome } from "react-icons/hi";
+import { FaFan } from "react-icons/fa";
 import {
   SignedIn,
   SignedOut,
@@ -13,7 +14,11 @@ export default function Sidebar() {
     <div className="flex flex-col p-3 justify-between h-screen items-center">
       <div className="flex flex-col gap-4 p-3">
         <Link href="/">
-          <FaXTwitter className="w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200 " />
+          <div className="flex justify-center items-center">
+            {/* <FaXTwitter className="w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200 " /> */}
+            <FaFan className="w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200 " />
+            <span className="text-2xl font-bold hidden xl:inline">Fans</span>
+          </div>
         </Link>
         <Link
           href="/"
@@ -22,7 +27,7 @@ export default function Sidebar() {
           <HiHome className="w-7 h-7" />
           <span className="font-bold hidden xl:inline">Home</span>
         </Link>
-        <div className="text-center align-middle bg-blue-400 text-white rounded-full  hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline font-semibold">
+        <div className="pt-1 text-center align-middle bg-blue-400 text-white rounded-full  hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline font-semibold">
           <SignedIn>
             <SignOutButton />
           </SignedIn>
