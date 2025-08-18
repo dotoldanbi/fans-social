@@ -15,6 +15,8 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen max-w-xl mx-auto border-r border-l">
+      {/* 이렇게 사용하면 hydra error임 */}
+      {/* <div>{homePageContent.title}</div> */}
       <div className="py-2 px-3 sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="text-lg sm:text-xl font-bold">Home</div>
       </div>

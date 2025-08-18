@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import News from "./News";
+import AiSummary from "./AiSummary";
+
 export default function RightSidebar() {
   const [input, setInput] = useState("");
   const router = useRouter();
@@ -15,6 +17,7 @@ export default function RightSidebar() {
 
   return (
     <>
+      <AiSummary />
       <div className="sticky top-0 h-screen">
         <form onSubmit={handleSubmit}>
           <input

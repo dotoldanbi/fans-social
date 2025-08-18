@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.30.0",
+    "@google/generative-ai": "^0.24.1",
     "firebase": "^12.1.0",
     "immer": "^10.1.1",
     "inngest": "^3.40.1",
