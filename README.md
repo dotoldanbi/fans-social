@@ -1,4 +1,4 @@
-# fans-social
+# fans-social (react next.js)
 
 **supports**
 
